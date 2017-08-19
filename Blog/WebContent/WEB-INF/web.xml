@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+
+<servlet>
+	<servlet-name>regServlet</servlet-name>
+	<servlet-class>WebServlet.registerServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>regServlet</servlet-name>
+	<url-pattern>/servlet/regServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>loginServlet</servlet-name>
+	<servlet-class>WebServlet.loginServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>loginServlet</servlet-name>
+	<url-pattern>/servlet/loginServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>logoutServlet</servlet-name>
+	<servlet-class>WebServlet.logoutServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>logoutServlet</servlet-name>
+	<url-pattern>/serlvet/logoutServlet</url-pattern>
+</servlet-mapping>
+
+
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
