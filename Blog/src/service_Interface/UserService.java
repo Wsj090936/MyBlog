@@ -1,6 +1,8 @@
 package service_Interface;
 
 import domain.User;
+import exception.UserExistException;
+import exception.UsersException;
 
 public interface UserService {
 	/**
@@ -14,5 +16,12 @@ public interface UserService {
 	 * @param user
 	 * @return
 	 */
-	public User login(User user);
+	public User login(User user) throws UsersException;
+	/**
+	 * 根据注册时填入的用户名在数据库中查找是否有与之相同的用户名存在
+	 * @param username
+	 * @return
+	 * @throws UserExistException
+	 */
+	public boolean findUserByName(String username) throws UserExistException;
 }

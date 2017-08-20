@@ -15,4 +15,10 @@ public interface UserDao {
 	 * @return
 	 */
 	public User findUser(User user);
+	/**
+	 * 根据用户名在数据库中查找是否存在与之相同的用户
+	 * @param username
+	 * @return
+	 */
+	public boolean findUserByName(String username);
 }

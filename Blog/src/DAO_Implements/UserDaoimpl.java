@@ -41,4 +41,23 @@ public class UserDaoimpl implements UserDao {
 		return u;
 	}
 
+	@Override
+	public boolean findUserByName(String username) {
+		Connection con = null;
+		User u = null;
+		
+		try {
+			con = JDBCTool.getConnection();
+			String sql = "SELECT * FROM user WHERE username=?";
+			u = JDBCTool.select(con, User.class, sql, username);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(u != null){//找到了该用户返回true
+			return true;
+		}
+		return false;
+	}
+
 }

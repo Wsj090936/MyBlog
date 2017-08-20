@@ -15,7 +15,10 @@
 					用户名:
 				</td>
 				<td>
-					<input type="text" name="username">
+					<input type="text" name="username" value="${uf.username }">
+				</td>
+				<td>
+					${uf.msgMap.username }${regMsg }
 				</td>
 			</tr>
 			<tr>
@@ -25,6 +28,9 @@
 				<td>
 					<input type="password" name="password">
 				</td>
+				<td>
+					${uf.msgMap.password }
+				</td>
 			</tr>
 			<tr>
 				<td>
@@ -33,13 +39,19 @@
 				<td>
 					<input type="password" name="repassword">
 				</td>
+				<td>
+					${uf.msgMap.repassword }
+				</td>
 			</tr>
 			<tr>
 				<td>
 					邮箱:
 				</td>
 				<td>
-					<input type="text" name="email">
+					<input type="text" name="email" value="${uf.email }">
+				</td>
+				<td>
+					${uf.msgMap.email }
 				</td>
 			</tr>
 			<tr><!-- 提交按钮 -->

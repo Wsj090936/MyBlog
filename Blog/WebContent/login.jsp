@@ -70,7 +70,7 @@
     <form action="${pageContext.request.contextPath }/servlet/loginServlet" method="post">
     <input type="hidden" name="action" value="login">
         <h2>欢 迎 登 录</h2>
-        <input type="text" name="username" placeholder="用户名" />
+        <input type="text" name="username" placeholder="用户名" />${msg }
         <input type="password" name="password" placeholder="用户密码" />
         <button type="reset">重&nbsp&nbsp&nbsp&nbsp&nbsp置</button>
         <button type="submit">登&nbsp&nbsp&nbsp&nbsp&nbsp录</button>
