@@ -84,7 +84,7 @@
 								<td><h3><a href="#">${each.title }</a></h3></td>
 								<td>${each.date }</td>
 								<td><a href="#">${each.username }</a></td>
-								<td><a href="#" class="ico del">删除</a><a href="#" class="ico edit">编辑</a></td>
+								<td><a href="#" class="ico del">删除</a><a href="${pageContext.request.contextPath }/servlet/findArticleByIdServlet?id=${each.id }" class="ico edit">编辑</a></td>
 							</tr>
 							</c:forEach>
 						</table>

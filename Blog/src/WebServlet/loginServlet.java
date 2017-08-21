@@ -33,11 +33,8 @@ public class loginServlet extends HttpServlet{
 			u = us.login(user);//得到从数据库中查到的对象
 			//分发转向
 			if(u != null){//登陆成功
-				ArticleService as = new ArticleServiceImpl();
-				List<Article> articleList = as.findAllArticle();//将所有文章查找出来
 				request.getSession().setAttribute("user", user);
-				request.getSession().setAttribute("article", articleList);
-				request.getRequestDispatcher("/index.jsp").forward(request, response);
+				request.getRequestDispatcher("/servlet/ArticleListServlet").forward(request, response);//调到文章查找Servlet
 			}
 		} catch (UsersException e) {
 			// TODO Auto-generated catch block

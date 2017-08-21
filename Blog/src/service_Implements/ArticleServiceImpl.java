@@ -1,9 +1,11 @@
 package service_Implements;
 
+import java.sql.Connection;
 import java.util.List;
 
 import DAO_Implements.ArticleDaoImpl;
 import DAO_Interface.ArticleDao;
+import Utils.JDBCTool;
 import domain.Article;
 import service_Interface.ArticleService;
 
@@ -19,5 +21,13 @@ public class ArticleServiceImpl implements ArticleService{
 	}
 	public void publishArticle(Article article){
 		ad.publishArticle(article);
+	}
+	@Override
+	public Article findArticleById(String id) {
+		return ad.findArticleById(id);
+	}
+	@Override
+	public void editArticle(Article article) {
+		ad.editArticle(article);	
 	}
 }

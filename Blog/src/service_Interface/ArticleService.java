@@ -16,4 +16,14 @@ public interface ArticleService {
 	 * @param article
 	 */
 	public void publishArticle(Article article);
+	/**
+	 * 根据id找到文章
+	 * @param id
+	 */
+	public Article findArticleById(String id);
+	/**
+	 * 修改文章
+	 * @param article
+	 */
+	public void editArticle(Article article);
 }

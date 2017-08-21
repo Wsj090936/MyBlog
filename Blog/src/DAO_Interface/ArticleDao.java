@@ -16,4 +16,15 @@ public interface ArticleDao {
 	 * @param article
 	 */
 	public void publishArticle(Article article);
+	/**
+	 * 根据id找到文章
+	 * @param id
+	 * @return
+	 */
+	public Article findArticleById(String id);
+	/**
+	 * 修改文章
+	 * @param article
+	 */
+	public void editArticle(Article article);
 }
