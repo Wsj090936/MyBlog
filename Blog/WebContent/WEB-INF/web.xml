@@ -28,6 +28,15 @@
 	<url-pattern>/serlvet/logoutServlet</url-pattern>
 </servlet-mapping>
 
+<servlet>
+	<servlet-name>publishServlet</servlet-name>
+	<servlet-class>WebServlet.publishServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>publishServlet</servlet-name>
+	<url-pattern>/servlet/publishServlet</url-pattern>
+</servlet-mapping>
+
 
   <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>

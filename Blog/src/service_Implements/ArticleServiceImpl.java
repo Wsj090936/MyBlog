@@ -17,4 +17,7 @@ public class ArticleServiceImpl implements ArticleService{
 	public List<Article> findAllArticle(){
 		return ad.findAllArticles();
 	}
+	public void publishArticle(Article article){
+		ad.publishArticle(article);
+	}
 }

@@ -11,4 +11,9 @@ public interface ArticleService {
 	 * @return
 	 */
 	public List<Article> findAllArticle();
+	/**
+	 * ╥╒╠Мндуб
+	 * @param article
+	 */
+	public void publishArticle(Article article);
 }

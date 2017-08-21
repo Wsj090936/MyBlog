@@ -11,4 +11,9 @@ public interface ArticleDao {
 	 * @return
 	 */
 	public List<Article> findAllArticles();
+	/**
+	 * лМ╪сндуб
+	 * @param article
+	 */
+	public void publishArticle(Article article);
 }

@@ -74,9 +74,9 @@
 								</p>	
 								<p class="inline-field">
 									<label>Date</label>
-									<input type="text" class="field size2" name="date"/>
-									<input type="text" class="field size3" name="date"/>
-									<input type="text" class="field size3" name="date"/>
+									<input type="text" class="field size2" name="date1"/>
+									<input type="text" class="field size3" name="date2"/>
+									<input type="text" class="field size3" name="date3"/>
 								</p>
 								
 								<p>
