@@ -18,6 +18,7 @@ public class EditServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		
 		String id = request.getParameter("id");
 		String title = request.getParameter("title");
 		String date = request.getParameter("date1")+"-"+
@@ -26,12 +27,12 @@ public class EditServlet extends HttpServlet{
 		User user = (User) request.getSession().getAttribute("user");
 		String username = user.getUsername();
 		Article article = new Article();
+		
 		article.setId(id);
 		article.setTitle(title);
 		article.setUsername(username);
 		article.setContent(content);
 		article.setDate(date);
-		System.out.println(article);
 		ArticleService as = new ArticleServiceImpl();
 		as.editArticle(article);
 		
