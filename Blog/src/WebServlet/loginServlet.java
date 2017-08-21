@@ -1,15 +1,19 @@
 package WebServlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import domain.Article;
 import domain.User;
 import exception.UsersException;
+import service_Implements.ArticleServiceImpl;
 import service_Implements.UserServiceImpl;
+import service_Interface.ArticleService;
 import service_Interface.UserService;
 
 public class loginServlet extends HttpServlet{
@@ -29,7 +33,10 @@ public class loginServlet extends HttpServlet{
 			u = us.login(user);//得到从数据库中查到的对象
 			//分发转向
 			if(u != null){//登陆成功
+				ArticleService as = new ArticleServiceImpl();
+				List<Article> articleList = as.findAllArticle();//将所有文章查找出来
 				request.getSession().setAttribute("user", user);
+				request.getSession().setAttribute("article", articleList);
 				request.getRequestDispatcher("/index.jsp").forward(request, response);
 			}
 		} catch (UsersException e) {

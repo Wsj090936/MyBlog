@@ -15,7 +15,7 @@
 		<div id="top">
 			<h1><a href="#">MagicWolf</a></h1>
 			<div id="top-navigation">
-				欢迎&nbsp;&nbsp;<a href="#"><strong>管理员</strong></a>
+				欢迎&nbsp;&nbsp;<a href="#"><strong>${user.username }</strong></a>
 				<span>|</span>
 				<a href="#">退出</a>
 			</div>
@@ -63,25 +63,25 @@
 					</div>
 					<!-- End Box Head -->
 					
-					<form action="edited" method="post">
+					<form action="${pageContext.request.contextPath }/servlet/publishServlet" method="post">
 						
 						<!-- Form -->
 						<div class="form">
 								<p>
 									<span class="req">最多100字</span>
 									<label>标题<span>*</span></label>
-									<input type="text" class="field size1" />
+									<input type="text" class="field size1" name="title"/>
 								</p>	
 								<p class="inline-field">
 									<label>Date</label>
-									<input type="text" class="field size2"/>
-									<input type="text" class="field size3"/>
-									<input type="text" class="field size3"/>
+									<input type="text" class="field size2" name="date"/>
+									<input type="text" class="field size3" name="date"/>
+									<input type="text" class="field size3" name="date"/>
 								</p>
 								
 								<p>
 									<label>内容<span>*</span></label>
-									<textarea class="field size1" rows="10" cols="30"></textarea>
+									<textarea class="field size1" rows="10" cols="30" name="content"></textarea>
 								</p>	
 							
 						</div>

@@ -9,9 +9,13 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+
+import org.apache.commons.beanutils.BeanUtils;
 
 
 
@@ -56,9 +60,10 @@ public class JDBCTool {
 					for(Map.Entry<String, Object> each : valueMap.entrySet()){//遍历Map集合，利用反射对运算时类的属性赋值
 						String fieldName = each.getKey();
 						Object value = each.getValue();
-						Field f = clazz.getDeclaredField(fieldName);
-						f.setAccessible(true);
-						f.set(obj, value);//为属性赋值
+//						Field f = clazz.getDeclaredField(fieldName);
+//						f.setAccessible(true);
+//						f.set(obj, value);
+						BeanUtils.setProperty(obj, fieldName, value);//为属性赋值
 					}
 				}
 			}
@@ -71,6 +76,62 @@ public class JDBCTool {
 		return obj;
 		
 	}
+    /**
+     * 数据库的多个查询返回结果集合的操作
+     * @param clazz
+     * @param sql
+     * @param args
+     * @return
+     */
+    public static <T> List<T> getForList(Class<T> clazz,String sql,Object ... args){
+    	List<T> list =  new ArrayList<>();
+    	Connection con = null;
+    	PreparedStatement ps = null;
+    	ResultSet rs = null;
+    	try {
+			con = getConnection();
+			ps = con.prepareStatement(sql);
+			for(int i = 0;i < args.length;i++){
+				ps.setObject(i + 1, args[i]);
+			}
+			rs = ps.executeQuery();//得到结果集
+			List<Map<String,Object>> valueList = new ArrayList<>();//用于存放多条记录的List集合
+			ResultSetMetaData rsmd = rs.getMetaData();
+			Map<String,Object> map = null;//存放一条记录的Map集合
+			while(rs.next()){//处理结果集
+				map = new HashMap<String,Object>();
+				
+				for(int i = 0;i < rsmd.getColumnCount();i++){
+					String columLabel = rsmd.getColumnLabel(i + 1);
+					Object value = rs.getObject(i + 1);
+					//将一条记录存入mao集合中
+					map.put(columLabel, value);
+				}
+				valueList.add(map);
+			}
+			//判断valueList是否为空  若不为空，则遍历valueList集合，得到一个个Map对象，将其转为Class参数对应的对象
+			T bean = null;
+			if(valueList.size() > 0){
+				for(Map<String,Object> each : valueList){
+					bean =  clazz.newInstance();
+					for(Map.Entry<String, Object> e : each.entrySet()){
+						String fieldname = e.getKey();
+						Object fieldvalue = e.getValue();
+						//为对应的Java类属性赋值
+						BeanUtils.setProperty(bean, fieldname, fieldvalue);
+
+					}
+					//将T对象放入list中
+					list.add(bean);
+				}
+			}
+		} catch (Exception e) {
+            e.printStackTrace();
+		}finally{
+			release(rs, con, ps);
+		}
+    	return list;
+    }
 	/**
 	 * 通用的更新操作的方法，传入的参数为sql语句，不为null的Connection对象,填充占位符需要的值
 	 * @param con

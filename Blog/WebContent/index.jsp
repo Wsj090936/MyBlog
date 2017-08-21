@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,8 +26,8 @@
 		<!-- Main Nav -->
 		<div id="navigation">
 			<ul>
-			    <li><a href="index.jsp" class="active"><span>首页</span></a></li>
-			    <li><a href="publish.jsp" ><span>发布文章</span></a></li>
+			    <li><a href="${pageContext.request.contextPath }/index.jsp" class="active"><span>首页</span></a></li>
+			    <li><a href="${pageContext.request.contextPath }/publish.jsp" ><span>发布文章</span></a></li>
 			</ul>
 		</div>
 		<!-- End Main Nav -->
@@ -77,83 +78,15 @@
 								<th>作者</th>
 								<th width="110" class="ac"></th>
 							</tr>
+							<c:forEach items="${article }" var="each">
 							<tr>
 								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
-								<td>12.05.09</td>
-								<td><a href="#">管理员</a></td>
+								<td><h3><a href="#">${each.title }</a></h3></td>
+								<td>${each.date }</td>
+								<td><a href="#">${each.username }</a></td>
 								<td><a href="#" class="ico del">删除</a><a href="#" class="ico edit">编辑</a></td>
 							</tr>
-							<tr class="odd">
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
-								<td>12.05.09</td>
-								<td><a href="#">管理员</a></td>
-								<td><a href="#" class="ico del">删除</a><a href="#" class="ico edit">编辑</a></td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
-								<td>12.05.09</td>
-								<td><a href="#">管理员</a></td>
-								<td><a href="#" class="ico del">删除</a><a href="#" class="ico edit">编辑</a></td>
-							</tr>
-							<tr class="odd">
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
-								<td>12.05.09</td>
-								<td><a href="#">管理员</a></td>
-								<td><a href="#" class="ico del">删除</a><a href="#" class="ico edit">编辑</a></td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
-								<td>12.05.09</td>
-								<td><a href="#">管理员</a></td>
-								<td><a href="#" class="ico del">删除</a><a href="#" class="ico edit">编辑</a></td>
-							</tr>
-							<tr class="odd">
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
-								<td>12.05.09</td>
-								<td><a href="#">管理员</a></td>
-								<td><a href="#" class="ico del">删除</a><a href="#" class="ico edit">编辑</a></td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
-								<td>12.05.09</td>
-								<td><a href="#">管理员</a></td>
-								<td><a href="#" class="ico del">删除</a><a href="#" class="ico edit">编辑</a></td>
-							</tr>
-							<tr class="odd">
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
-								<td>12.05.09</td>
-								<td><a href="#">管理员</a></td>
-								<td><a href="#" class="ico del">删除</a><a href="#" class="ico edit">编辑</a></td>
-							</tr>
-							<!--<tr class="odd">
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
-								<td>12.05.09</td>
-								<td><a href="#">管理员</a></td>
-								<td><a href="#" class="ico del">删除</a><a href="#" class="ico edit">编辑</a></td>
-							</tr>
-							<tr class="odd">
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
-								<td>12.05.09</td>
-								<td><a href="#">管理员</a></td>
-								<td><a href="#" class="ico del">删除</a><a href="#" class="ico edit">编辑</a></td>
-							</tr>
-							<tr class="odd">
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
-								<td>12.05.09</td>
-								<td><a href="#">管理员</a></td>
-								<td><a href="#" class="ico del">删除</a><a href="#" class="ico edit">编辑</a></td>
-							</tr>-->
+							</c:forEach>
 						</table>
 						
 						
