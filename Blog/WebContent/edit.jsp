@@ -25,7 +25,7 @@
 		<!-- Main Nav -->
 		<div id="navigation">
 			<ul>
-			    <li><a href="index.jsp" ><span>首页</span></a></li>
+			    <li><a href="${pageContext.request.contextPath }/index.jsp" ><span>首页</span></a></li>
 			    <li><a href="publish" class="active"><span>发布文章</span></a></li>
 			</ul>
 		</div>

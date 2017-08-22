@@ -7,6 +7,23 @@
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<title>后台管理</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css" type="text/css" media="all" />
+<script type="text/javascript">
+	function delArticle(id){
+		if(confirm("确定要删除该文章吗？")){
+			location.href="${pageContext.request.contextPath }/servlet/deleteServlet?id="+id;
+		}
+	}
+	function checkAll(){
+		//得到ckAll元素，获得其选取状态
+		var ckAll = document.getElementById("ckAll").checked;
+		//得到所有cb复选框元素
+		var cb = document.getElementsByName("cb");
+		//给每个复选框赋值
+		for (var i = 0; i < cb.length; i++) {
+			cb[i].checked = ckAll;
+		}
+	}
+</script>
 </head>
 <body>
 <!-- Header -->
@@ -72,7 +89,7 @@
 					<div class="table">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr>
-								<th width="13"><input type="checkbox" class="checkbox" /></th>
+								<th width="13"><input type="checkbox" class="checkbox" id="ckAll" onclick="checkAll()"/></th>
 								<th>标题</th>
 								<th>日期</th>
 								<th>作者</th>
@@ -80,11 +97,11 @@
 							</tr>
 							<c:forEach items="${article }" var="each">
 							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
+								<td><input type="checkbox" class="checkbox" name="cb"/></td>
 								<td><h3><a href="#">${each.title }</a></h3></td>
 								<td>${each.date }</td>
 								<td><a href="#">${each.username }</a></td>
-								<td><a href="#" class="ico del">删除</a><a href="${pageContext.request.contextPath }/servlet/findArticleByIdServlet?id=${each.id }" class="ico edit">编辑</a></td>
+								<td><a href="javascript:delArticle('${each.id }')" class="ico del">删除</a><a href="${pageContext.request.contextPath }/servlet/findArticleByIdServlet?id=${each.id }" class="ico edit">编辑</a></td>
 							</tr>
 							</c:forEach>
 						</table>

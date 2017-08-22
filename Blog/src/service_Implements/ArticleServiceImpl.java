@@ -7,6 +7,7 @@ import DAO_Implements.ArticleDaoImpl;
 import DAO_Interface.ArticleDao;
 import Utils.JDBCTool;
 import domain.Article;
+import domain.PageBean;
 import service_Interface.ArticleService;
 
 public class ArticleServiceImpl implements ArticleService{
@@ -29,5 +30,23 @@ public class ArticleServiceImpl implements ArticleService{
 	@Override
 	public void editArticle(Article article) {
 		ad.editArticle(article);	
+	}
+	@Override
+	public void deleteArticle(String id) {
+		ad.deleteArticle(id);
+	}
+	@Override
+	public PageBean findArticlesPage(int currentPage, int pageSize) {
+		int count = ad.count();//数据库中的文章总数
+		int totalPage = (int) Math.ceil(count*1.0/pageSize);//向上取整，表示总页数
+		List<Article> articles = ad.findArticles(currentPage,pageSize);
+		
+		PageBean pb = new PageBean();//将取到的数据疯转如PageBean对象中
+		pb.setArticle(articles);
+		pb.setCount(count);
+		pb.setCurrentPage(currentPage);
+		pb.setPageSize(pageSize);
+		pb.setTotalPage(totalPage);
+		return pb;
 	}
 }

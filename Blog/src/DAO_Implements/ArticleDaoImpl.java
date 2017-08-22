@@ -62,4 +62,33 @@ public class ArticleDaoImpl implements ArticleDao{
 		}
 		
 	}
+
+	@Override
+	public void deleteArticle(String id) {
+		Connection con = null;
+		try {
+			con = JDBCTool.getConnection();
+			String sql = "DELETE FROM article WHERE id=?";
+			JDBCTool.update(con, sql, id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			JDBCTool.release(null, con, null);
+		}
+	}
+
+	@Override
+	public int count() {
+		String sql = "SELECT count(*) FROM article";
+		int count = JDBCTool.getvalues(sql);
+		return count;
+	}
+
+	@Override
+	public List<Article> findArticles(int currentPage, int pageSize) {
+		String sql = "SELECT * FROM article LIMIT ?,?";
+		List<Article> list = JDBCTool.getForList(Article.class, sql, (currentPage-1)*pageSize,pageSize);
+		return list;
+	}
 }

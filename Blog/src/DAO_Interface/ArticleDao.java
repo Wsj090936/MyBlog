@@ -27,4 +27,21 @@ public interface ArticleDao {
 	 * @param article
 	 */
 	public void editArticle(Article article);
+	/**
+	 * 删除文章
+	 * @param id
+	 */
+	public void deleteArticle(String id);
+	/**
+	 * 返回数据库中文章的总数
+	 * @return
+	 */
+	public int count();
+	/**
+	 * 根据pageSize找到文章
+	 * @param currentPage
+	 * @param pageSize
+	 * @return
+	 */
+	public List<Article> findArticles(int currentPage, int pageSize);
 }

@@ -21,12 +21,40 @@ import org.apache.commons.beanutils.BeanUtils;
 
 
 
+
 /**
- * JDBC的操作，包含了连接数据库和释放连接的功能
+ * JDBC的工具类
  * @author wushijia
  *
  */
 public class JDBCTool {
+    /**
+     * 返回某条记录的某一字段的值
+     * @param sql
+     * @param args
+     * @return
+     */
+    public static <E> E getvalues(String sql,Object ... args){
+    	Connection con = null;
+    	PreparedStatement ps = null;
+    	ResultSet rs = null;//所得结果集只为一行一列
+    	try {
+			con = getConnection();
+			ps = con.prepareStatement(sql);
+			for(int i = 0;i < args.length;i++){
+				ps.setObject(i+1,args[i]);
+			}
+			rs = ps.executeQuery();
+			if(rs.next()){
+				return (E)rs.getObject(1);
+			}
+		} catch (Exception e) {
+            e.printStackTrace();
+		}finally{
+			release(rs, con, ps);
+		}
+    	return null;
+    }
 	/**
 	 * 向数据库中查询数据的通用方法，传入的参数如下
 	 * @param con  表示一个已经获取了连接的Connection对象

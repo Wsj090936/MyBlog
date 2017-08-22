@@ -3,6 +3,7 @@ package service_Interface;
 import java.util.List;
 
 import domain.Article;
+import domain.PageBean;
 
 public interface ArticleService {
 	/**
@@ -26,4 +27,16 @@ public interface ArticleService {
 	 * @param article
 	 */
 	public void editArticle(Article article);
+	/**
+	 * 删除文章
+	 * @param id
+	 */
+	public void deleteArticle(String id);
+	/**
+	 * 找到每页显示的数据，返回一个PageBean对象
+	 * @param currentPage
+	 * @param pageSize
+	 * @return
+	 */
+	public PageBean findArticlesPage(int currentPage, int pageSize);
 }
