@@ -36,7 +36,7 @@ public class EditServlet extends HttpServlet{
 		ArticleService as = new ArticleServiceImpl();
 		as.editArticle(article);
 		
-		request.getRequestDispatcher("/servlet/ArticleListServlet").forward(request, response);
+		request.getRequestDispatcher("/servlet/pageServlet").forward(request, response);
 	}
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

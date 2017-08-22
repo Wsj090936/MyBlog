@@ -34,7 +34,7 @@ public class publishServlet extends HttpServlet{
 		as.publishArticle(article);
 		
 		response.getWriter().write("发表成功，页面将于1秒后跳转");
-		request.getRequestDispatcher("/servlet/ArticleListServlet").forward(request, response);
+		request.getRequestDispatcher("/servlet/pageServlet").forward(request, response);
 
 	}
 	@Override

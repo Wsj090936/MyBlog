@@ -20,7 +20,7 @@ public class DeleteServlet extends HttpServlet{
 		ArticleService as = new ArticleServiceImpl();
 		as.deleteArticle(id);
 		
-		request.getRequestDispatcher("/servlet/ArticleListServlet").forward(request, response);
+		request.getRequestDispatcher("/servlet/pageServlet").forward(request, response);
 	}
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

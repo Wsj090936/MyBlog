@@ -34,11 +34,11 @@ public class loginServlet extends HttpServlet{
 			//分发转向
 			if(u != null){//登陆成功
 				request.getSession().setAttribute("user", user);
-				request.getRequestDispatcher("/servlet/ArticleListServlet").forward(request, response);//调到文章查找Servlet
+				request.getRequestDispatcher("/servlet/pageServlet").forward(request, response);//调到文章查找Servlet
 			}
 		} catch (UsersException e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
+//			e.printStackTrace();s
 			//登陆失败
 			request.setAttribute("msg", e.getMessage());
 			request.getRequestDispatcher("/login.jsp").forward(request, response);

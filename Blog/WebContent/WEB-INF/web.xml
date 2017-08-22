@@ -73,6 +73,15 @@
 	<url-pattern>/servlet/deleteServlet</url-pattern>
 </servlet-mapping>
 
+<servlet>
+	<servlet-name>pageServlet</servlet-name>
+	<servlet-class>WebServlet.pageServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>pageServlet</servlet-name>
+	<url-pattern>/servlet/pageServlet</url-pattern>
+</servlet-mapping>
+
 
   <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>

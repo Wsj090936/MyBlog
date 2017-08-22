@@ -81,8 +81,8 @@ public class ArticleDaoImpl implements ArticleDao{
 	@Override
 	public int count() {
 		String sql = "SELECT count(*) FROM article";
-		int count = JDBCTool.getvalues(sql);
-		return count;
+		long count = (Long)JDBCTool.getvalues(sql);
+		return (int)count;
 	}
 
 	@Override

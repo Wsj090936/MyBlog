@@ -18,7 +18,7 @@
 					<input type="text" name="username" value="${uf.username }">
 				</td>
 				<td>
-					${uf.msgMap.username }${regMsg }
+					<span><font color="red" size="2">${uf.msgMap.username }${regMsg }</font></span>
 				</td>
 			</tr>
 			<tr>
@@ -29,7 +29,7 @@
 					<input type="password" name="password">
 				</td>
 				<td>
-					${uf.msgMap.password }
+					<span><font color="red" size="2">${uf.msgMap.password }</font></span>
 				</td>
 			</tr>
 			<tr>
@@ -40,7 +40,7 @@
 					<input type="password" name="repassword">
 				</td>
 				<td>
-					${uf.msgMap.repassword }
+					<span><font color="red" size="2">${uf.msgMap.repassword }</font></span>
 				</td>
 			</tr>
 			<tr>
@@ -51,7 +51,7 @@
 					<input type="text" name="email" value="${uf.email }">
 				</td>
 				<td>
-					${uf.msgMap.email }
+					<span><font color="red" size="2">${uf.msgMap.email }</font></span>
 				</td>
 			</tr>
 			<tr><!-- 提交按钮 -->

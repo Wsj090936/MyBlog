@@ -95,7 +95,7 @@
 								<th>作者</th>
 								<th width="110" class="ac"></th>
 							</tr>
-							<c:forEach items="${article }" var="each">
+							<c:forEach items="${pb.articles }" var="each">
 							<tr>
 								<td><input type="checkbox" class="checkbox" name="cb"/></td>
 								<td><h3><a href="#">${each.title }</a></h3></td>
@@ -111,15 +111,10 @@
 						<div class="pagging">
 							<div class="left">1-2</div>
 							<div class="right">
-								<a href="#">上一页</a>
-								<a href="#">1</a>
-								<a href="#">2</a>
-								<a href="#">3</a>
-								<a href="#">4</a>
-								<a href="#">245</a>
-								<span>...</span>
-								<a href="#">下一页</a>
-								<a href="#">最后一页</a>
+								<a href="${pageContext.request.contextPath }/servlet/pageServlet?currentPage=${pb.currentPage==1?1 : pb.currentPage-1 }">上一页</a>
+								<span>第${pb.currentPage }页/共${pb.totalPage }页</span>
+								<a href="${pageContext.request.contextPath }/servlet/pageServlet?currentPage=${pb.currentPage==pb.totalPage ? pb.totalPage : pb.currentPage+1 }">下一页</a>
+								<a href="${pageContext.request.contextPath }/servlet/pageServlet?currentPage=${pb.totalPage }">最后一页</a>
 							</div>
 						</div>
 						<!-- End Pagging -->
