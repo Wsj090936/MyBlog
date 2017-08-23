@@ -82,6 +82,15 @@
 	<url-pattern>/servlet/pageServlet</url-pattern>
 </servlet-mapping>
 
+<servlet>
+	<servlet-name>ArticleContentServlet</servlet-name>
+	<servlet-class>WebServlet.ArticleContentServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ArticleContentServlet</servlet-name>
+	<url-pattern>/servlet/articleContentServlet</url-pattern>
+</servlet-mapping>
+
 
   <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>

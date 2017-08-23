@@ -5,7 +5,7 @@
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<title>后台管理</title>
-	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css" type="text/css" media="all" />
 </head>
 <body>
 <!-- Header -->
@@ -26,7 +26,7 @@
 		<div id="navigation">
 			<ul>
 			    <li><a href="${pageContext.request.contextPath }/servlet/pageServlet" ><span>首页</span></a></li>
-			    <li><a href="#" class="active"><span>发布文章</span></a></li>
+			    <li><a href="${pageContext.request.contextPath }/publish.jsp" class="active"><span>发布文章</span></a></li>
 			</ul>
 		</div>
 		<!-- End Main Nav -->
@@ -42,7 +42,7 @@
 		<div class="small-nav">
 			<a href="${pageContext.request.contextPath }/servlet/pageServlet">首页</a>
 			<span>&gt;</span>
-			发布文章
+			查看文章
 		</div>
 		<!-- End Small Nav -->
 				
@@ -59,41 +59,22 @@
 				<div class="box">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2>发布文章</h2>
+						<h2>查看文章</h2>
 					</div>
 					<!-- End Box Head -->
-					
-					<form action="${pageContext.request.contextPath }/servlet/publishServlet" method="post">
-						
+											
 						<!-- Form -->
 						<div class="form">
-								<p>
-									<span class="req">最多100字</span>
-									<label>标题<span>*</span></label>
-									<input type="text" class="field size1" name="title"/>
-								</p>	
-								<p class="inline-field">
-									<label>Date</label>
-									<input type="text" class="field size2" name="date1"/>
-									<input type="text" class="field size3" name="date2"/>
-									<input type="text" class="field size3" name="date3"/>
-								</p>
-								
-								<p>
-									<label>内容<span>*</span></label>
-									<textarea class="field size1" rows="10" cols="30" name="content"></textarea>
+									<h1 align="center" style="color:black">${look.title }</h1>
+								<p style="color:black;font-size:16px">
+									${look.content }
 								</p>	
 							
 						</div>
 						<!-- End Form -->
 						
 						<!-- Form Buttons -->
-						<div class="buttons">
-							<input type="button" class="button" value="preview" />
-							<input type="submit" class="button" value="提交" />
-						</div>
 						<!-- End Form Buttons -->
-					</form>
 				</div>
 				<!-- End Box -->
 

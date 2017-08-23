@@ -25,8 +25,8 @@
 		<!-- Main Nav -->
 		<div id="navigation">
 			<ul>
-			    <li><a href="${pageContext.request.contextPath }/index.jsp" ><span>首页</span></a></li>
-			    <li><a href="publish" class="active"><span>发布文章</span></a></li>
+			    <li><a href="${pageContext.request.contextPath }/servlet/pageServlet" ><span>首页</span></a></li>
+			    <li><a href="${pageContext.request.contextPath }/servlet/publishServlet" class="active"><span>发布文章</span></a></li>
 			</ul>
 		</div>
 		<!-- End Main Nav -->
@@ -40,7 +40,7 @@
 		
 		<!-- Small Nav -->
 		<div class="small-nav">
-			<a href="index.jsp">首页</a>
+			<a href="${pageContext.request.contextPath }/servlet/pageServlet">首页</a>
 			<span>&gt;</span>
 			修改文章
 		</div>

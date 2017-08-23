@@ -13,6 +13,9 @@
 			location.href="${pageContext.request.contextPath }/servlet/deleteServlet?id="+id;
 		}
 	}
+	function ArticleContent(id){
+		location.href="${pageContext.request.contextPath }/servlet/articleContentServlet?id="+id;
+	}
 	function checkAll(){
 		//得到ckAll元素，获得其选取状态
 		var ckAll = document.getElementById("ckAll").checked;
@@ -98,7 +101,7 @@
 							<c:forEach items="${pb.articles }" var="each">
 							<tr>
 								<td><input type="checkbox" class="checkbox" name="cb"/></td>
-								<td><h3><a href="#">${each.title }</a></h3></td>
+								<td><h3><a href="javascript:ArticleContent('${each.id }')">${each.title }</a></h3></td>
 								<td>${each.date }</td>
 								<td><a href="#">${each.username }</a></td>
 								<td><a href="javascript:delArticle('${each.id }')" class="ico del">删除</a><a href="${pageContext.request.contextPath }/servlet/findArticleByIdServlet?id=${each.id }" class="ico edit">编辑</a></td>
