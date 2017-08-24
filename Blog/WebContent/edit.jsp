@@ -17,7 +17,7 @@
 			<div id="top-navigation">
 				欢迎&nbsp;&nbsp;<a href="#"><strong>${user.username }</strong></a>
 				<span>|</span>
-				<a href="#">退出</a>
+				<a href="${pageContext.request.contextPath }/serlvet/logoutServlet">退出</a>
 			</div>
 		</div>
 		<!-- End Logo + Top Nav -->
