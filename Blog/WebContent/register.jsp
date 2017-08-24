@@ -5,6 +5,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>注册</title>
+<script type="text/javascript">
+	window.onload=function(){
+		var nameElement = document.getElementsByName("username")[0];
+		nameElement.onblur = function(){
+			var name = this.value;//得到用户输入的内容
+			var req;
+			if (window.XMLHttpRequest)
+			  {// code for IE7+, Firefox, Chrome, Opera, Safari
+			  req=new XMLHttpRequest();
+			  }
+			else
+			  {// code for IE6, IE5
+			  req=new ActiveXObject("Microsoft.XMLHTTP");
+			  }
+			req.onreadystatechange = function(){
+				if(req.readyState==4){//请求一切正常
+					if(req.status==200){//服务器一切正常
+						var namemsg = document.getElementById("namemsg");
+						if(req.responseText=="true"){
+							namemsg.innerHTML = "<font color='red' size='2'>用户名已存在</font>"
+						}
+					}
+				}
+			}
+			req.open("get","${pageContext.request.contextPath }/servlet/CkUserNameServlet?username="+name);//创建连接
+			req.send(null);//发送请求
+		}
+	}
+</script>
 </head>
 <body>
 		<form action="${pageContext.request.contextPath }/servlet/regServlet" method="post">
@@ -18,7 +47,7 @@
 					<input type="text" name="username" value="${uf.username }">
 				</td>
 				<td>
-					<span><font color="red" size="2">${uf.msgMap.username }${regMsg }</font></span>
+					<span id="namemsg"></span><span><font color="red" size="2">${uf.msgMap.username }${regMsg }</font></span>
 				</td>
 			</tr>
 			<tr>

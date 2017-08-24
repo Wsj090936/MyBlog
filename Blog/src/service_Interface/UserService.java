@@ -24,4 +24,10 @@ public interface UserService {
 	 * @throws UserExistException
 	 */
 	public boolean findUserByName(String username) throws UserExistException;
+	/**
+	 * 根据用户名找用户
+	 * @param username
+	 * @return
+	 */
+	public boolean findUserByName1(String username);
 }

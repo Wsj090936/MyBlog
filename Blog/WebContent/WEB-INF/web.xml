@@ -38,12 +38,12 @@
 </servlet-mapping>
 
 <servlet>
-	<servlet-name>ArticleListServlet</servlet-name>
-	<servlet-class>WebServlet.ArticleListServlet</servlet-class>
+	<servlet-name>CkUserNameServlet</servlet-name>
+	<servlet-class>WebServlet.CkUserNameServlet</servlet-class>
 </servlet>
 <servlet-mapping>
-	<servlet-name>ArticleListServlet</servlet-name>
-	<url-pattern>/servlet/ArticleListServlet</url-pattern>
+	<servlet-name>CkUserNameServlet</servlet-name>
+	<url-pattern>/servlet/CkUserNameServlet</url-pattern>
 </servlet-mapping>
 
 <servlet>

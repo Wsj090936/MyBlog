@@ -30,5 +30,10 @@ public class UserServiceImpl implements UserService {
 		}
 		return exist;
 	}
+	@Override
+	public boolean findUserByName1(String username) {
+		// TODO Auto-generated method stub
+		return userDao.findUserByName(username);
+	}
 
 }
