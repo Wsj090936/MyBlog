@@ -86,6 +86,8 @@
 							<input type="submit" class="button" value="搜索" />
 						</div>
 					</div>
+<!-- 这是未完成的搜索功能						<div id="context1" style="border:1px solid red;background:white;width:148;height:100px;position:absolute;left:823px;right:560px">
+						</div> -->
 					<!-- End Box Head -->	
 
 					<!-- Table -->
