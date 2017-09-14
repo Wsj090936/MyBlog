@@ -25,6 +25,7 @@ public class MyFilter2 implements Filter {
 		if(!("/servlet/loginServlet".equals(path) ||
 			 "/servlet/regServlet".equals(path) ||
 			 "/servlet/pageServlet".equals(path) ||
+			 "/servlet/findArticleByIdServlet".equals(path) ||
 			 "/servlet/articleContentServlet".equals(path))){
 			User user = (User) req.getAttribute("user");
 			if(user == null){

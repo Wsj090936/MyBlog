@@ -41,7 +41,7 @@ public class ArticleServiceImpl implements ArticleService{
 		int totalPage = (int) Math.ceil(count*1.0/pageSize);//向上取整，表示总页数
 		List<Article> articles = ad.findArticles(currentPage,pageSize);
 		
-		PageBean pb = new PageBean();//将取到的数据疯转如PageBean对象中
+		PageBean pb = new PageBean();//将取到的数据封装PageBean对象中
 		pb.setArticle(articles);
 		pb.setCount(count);
 		pb.setCurrentPage(currentPage);

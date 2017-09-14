@@ -38,7 +38,6 @@ public class loginServlet extends HttpServlet{
 			}
 		} catch (UsersException e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();s
 			//µÇÂ½Ê§°Ü
 			request.setAttribute("msg", e.getMessage());
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
